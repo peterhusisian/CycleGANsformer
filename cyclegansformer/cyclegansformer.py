@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 from torch.optim import Adam
 from tqdm import tqdm
 
-from cyclegansformer.utils import TGenerator, TDiscriminator
+from CycleGANsformer.cyclegansformer.utils import TGenerator, TDiscriminator
 
 LR = 2e-4
 EPOCHS = 200
