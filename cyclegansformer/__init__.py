@@ -1,3 +1,3 @@
-from cyclegansformer.cyclegansformer import CycleGANsformer
-from cyclegansformer.utils import TGenerator, TDiscriminator
-from cyclegansformer.cyclegan import Generator, Discriminator, CycleGAN, ImageDatasetLoader
+from CycleGANsformer.cyclegansformer.cyclegansformer import CycleGANsformer
+from CycleGANsformer.cyclegansformer.utils import TGenerator, TDiscriminator
+from CycleGANsformer.cyclegansformer.cyclegan import Generator, Discriminator, CycleGAN, ImageDatasetLoader
