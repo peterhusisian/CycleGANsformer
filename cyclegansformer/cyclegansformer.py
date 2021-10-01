@@ -55,15 +55,15 @@ class CycleGANsformer(nn.Module):
                 # adversarial loss
                 D_loss = (D_X_loss + D_Y_loss) / 2
 
-            opt_disc.zero_grad()
+            self.opt_disc.zero_grad()
             dscaler.scale(D_loss).backward(retain_graph=True)
-            dscaler.step(opt_disc)
+            dscaler.step(self.opt_disc)
             dscaler.update()
 
             with torch.cuda.amp.autocast():
                 # train generators
-                D_X_fake = discX(fake_x)
-                D_Y_fake = discY(fake_y)
+                D_X_fake = self.discX(fake_x)
+                D_Y_fake = self.discY(fake_y)
                 loss_G_X = self.mse(D_X_fake, torch.ones_like(D_X_fake))
                 loss_G_Y = self.mse(D_Y_fake, torch.ones_like(D_Y_fake))
 
@@ -84,9 +84,9 @@ class CycleGANsformer(nn.Module):
                 LAMBDA_ID = 0
                 G_loss = loss_G_Y + loss_G_X + (cycle_Y_loss + cycle_X_loss)*LAMBDA_CYCLE + (id_Y_loss + id_X_loss)*LAMBDA_ID
 
-            opt_gen.zero_grad()
+            self.opt_gen.zero_grad()
             gscaler.scale(G_loss).backward(retain_graph=True)
-            gscaler.step(opt_gen)
+            gscaler.step(self.opt_gen)
             gscaler.update()
 
     def fit(self, dataset, epochs=200, bsize=1, num_workers=4):
