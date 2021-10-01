@@ -155,6 +155,7 @@ class TDiscriminator(nn.Module):
         x = self.input_layer(img)
         x = self.stage1(x)
         x = self.fc1(x)
+        #supposed to be self.out(1)?
         pred = self.out(1)
 
         return pred

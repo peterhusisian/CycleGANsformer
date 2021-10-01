@@ -5,8 +5,8 @@ import torch.nn as nn
 from torch.optim import Adam
 import itertools
 
-from cyclegansformer.models import TGenerator, TDiscriminator
-from cyclegansformer.utils import LRDecay, ReplayBuffer, weights_init
+from CycleGANsformer.cyclegansformer.models import TGenerator, TDiscriminator
+from CycleGANsformer.cyclegansformer.utils import LRDecay, ReplayBuffer, weights_init
 
 CUTOUT_PROB = 0.3
 COLOR_PROB = 1.0
